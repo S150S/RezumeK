@@ -1,0 +1,49 @@
+﻿<Page x:Class="Rezume.Pages.RegPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Rezume.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="900" d:DesignWidth="800"
+      Title="Регистрация">
+
+    <Grid>
+        <StackPanel VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="1" >
+                <TextBlock Text="Фамилия" ></TextBlock>
+                <TextBox Name="Familiy"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="1">
+                <TextBlock Text="Имя"></TextBlock>
+                <TextBox Name="FirstName" ></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="1">
+                <TextBlock Text="Отчество"></TextBlock>
+                <TextBox Name="Otch" ></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="1">
+                <TextBlock Text="Дата рождения"></TextBlock>
+                <DatePicker Name="DateB" DisplayDate="2024-09-11" FirstDayOfWeek="Tuesday" IsTodayHighlighted="False" ></DatePicker>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="1">
+                <TextBlock Text="Телефон"></TextBlock>
+                <TextBox Name="Tel" ></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="1">
+                <TextBlock Text="Почта"></TextBlock>
+                <TextBox Name="Pocht" ></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="1">
+                <TextBlock Text="Логин"></TextBlock>
+                <TextBox Name="login" ></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="1">
+                <TextBlock Text="Пароль" ></TextBlock>
+                <PasswordBox Name="password" ></PasswordBox>
+            </StackPanel>
+            <Button   Content="Зарегестрироваться"  Click="RegClick" ></Button>
+            <Button  Content="Отмена" Click="CanelClick"></Button>
+        </StackPanel>
+    </Grid>
+</Page>

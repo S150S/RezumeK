@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fa048a0af7864ea1beb2e705b9422e31" Name="Diagram1">
+        <EntityTypeShape EntityType="RezumeModel.Artefact_rezume" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RezumeModel.HR" Width="1.5" PointX="3.75" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RezumeModel.Kandidat" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RezumeModel.Obrazovanie" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="RezumeModel.RezumeV" Width="1.5" PointX="6" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RezumeModel.Status_rezume" Width="1.5" PointX="3.75" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="RezumeModel.Status_vakanciy" Width="1.5" PointX="1.5" PointY="16" IsExpanded="true" />
+        <EntityTypeShape EntityType="RezumeModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="RezumeModel.Tip_artefact" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RezumeModel.Uroven_obr" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RezumeModel.Vakanciy" Width="1.5" PointX="3.75" PointY="15.25" IsExpanded="true" />
+        <AssociationConnector Association="RezumeModel.FK_Artefact_rezume_Rezume" ManuallyRouted="false" />
+        <AssociationConnector Association="RezumeModel.FK_Artefact_rezume_Tip_artefact" ManuallyRouted="false" />
+        <AssociationConnector Association="RezumeModel.FK_Rezume_HR" ManuallyRouted="false" />
+        <AssociationConnector Association="RezumeModel.FK_Obrazovanie_Kandidat" ManuallyRouted="false" />
+        <AssociationConnector Association="RezumeModel.FK_Rezume_Kandidat" ManuallyRouted="false" />
+        <AssociationConnector Association="RezumeModel.FK_Obrazovanie_Uroven_obr" ManuallyRouted="false" />
+        <AssociationConnector Association="RezumeModel.FK_Rezume_Status_rezume" ManuallyRouted="false" />
+        <AssociationConnector Association="RezumeModel.FK_Rezume_Vakanciy" ManuallyRouted="false" />
+        <AssociationConnector Association="RezumeModel.FK_Vakanciy_Status_vakanciy" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

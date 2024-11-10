@@ -1,0 +1,53 @@
+﻿<Page x:Class="Rezume.Pages.AddVak"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Rezume.Pages"
+      mc:Ignorable="d" 
+d:DesignHeight="900" d:DesignWidth="800"
+      Title="Добавление вакансии">
+
+    <Grid Background="{StaticResource SurfaceBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+
+
+
+        </Grid.RowDefinitions>
+        <Button
+            Grid.Row="8"
+            Grid.ColumnSpan="2"
+            Name="SaveButton"
+            Content="Сохранить"
+            Click="SaveButton_Click"></Button>
+
+
+        <TextBlock Text="Название вакансии" Grid.Row="0" HorizontalAlignment="Right"></TextBlock>
+        <TextBlock Text="Зарплата" Grid.Row="1" HorizontalAlignment="Right"></TextBlock>
+        <TextBlock Text="Необходимый опыт работы" Grid.Row="2" HorizontalAlignment="Right"></TextBlock>
+        <TextBlock Text="Необходимые навыки" Grid.Row="3" HorizontalAlignment="Right"></TextBlock>
+        <TextBlock Text="Обязанности" Grid.Row="4" HorizontalAlignment="Right"></TextBlock>
+        <TextBox Text="{Binding Name_vakanciy}" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left"></TextBox>
+        <TextBox Text="{Binding ZP}" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left"></TextBox>
+        <TextBox Text="{Binding Neod_opyt_rabot}" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left"></TextBox>
+        <TextBox Text="{Binding Opisanie_neob_navukov}" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" ></TextBox>
+        <TextBox Text="{Binding Opisanie_obzn}" Grid.Column="1" Grid.Row="4" Name="TextBoxProc" HorizontalAlignment="Left" />
+
+       
+
+
+
+
+    </Grid>
+</Page>

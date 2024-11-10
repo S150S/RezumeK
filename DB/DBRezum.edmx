@@ -1,0 +1,730 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище RezumeModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Artefact_rezume">
+          <Key>
+            <PropertyRef Name="Id_artefact_rezume" />
+          </Key>
+          <Property Name="Id_artefact_rezume" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_tip" Type="int" Nullable="false" />
+          <Property Name="Id_rezume" Type="int" Nullable="false" />
+          <Property Name="Fail" Type="image" Nullable="false" />
+        </EntityType>
+        <EntityType Name="HR">
+          <Key>
+            <PropertyRef Name="Id_HR" />
+          </Key>
+          <Property Name="Id_HR" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Familiy" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Imya" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Otchestvj" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Date_rogd" Type="date" Nullable="false" />
+          <Property Name="Telefon" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="Pochta" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Login_v_sistemu" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Parol_v_sistemu" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kandidat">
+          <Key>
+            <PropertyRef Name="Id_kandidat" />
+          </Key>
+          <Property Name="Id_kandidat" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Familiy" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Imya" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Otchestvj" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="Date_rogd" Type="date" Nullable="false" />
+          <Property Name="Telefon" Type="varchar" MaxLength="16" Nullable="false" />
+          <Property Name="Pochta" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Photo" Type="image" />
+          <Property Name="Login_v_sistemu" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Parol_v_sistemu" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Obrazovanie">
+          <Key>
+            <PropertyRef Name="Id_obrazovanie" />
+          </Key>
+          <Property Name="Id_obrazovanie" Type="int" Nullable="false" />
+          <Property Name="Id_kandidat" Type="int" Nullable="false" />
+          <Property Name="Id_uroven_obr" Type="int" Nullable="false" />
+          <Property Name="Specialnost" Type="varchar" MaxLength="40" Nullable="false" />
+          <Property Name="God_ocon" Type="int" Nullable="false" />
+          <Property Name="Name_uch" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Num_doc" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="RezumeV">
+          <Key>
+            <PropertyRef Name="Id_rezume" />
+          </Key>
+          <Property Name="Id_rezume" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Id_kandidat" Type="int" Nullable="false" />
+          <Property Name="Id_vakanciy" Type="int" Nullable="false" />
+          <Property Name="Opyt_rabot" Type="int" />
+          <Property Name="Ogidaemay_ZP" Type="money" />
+          <Property Name="Opisanie_navukov" Type="varchar(max)" />
+          <Property Name="Date_sozdaniy" Type="date" Nullable="false" />
+          <Property Name="Id_status" Type="int" Nullable="false" />
+          <Property Name="Id_HR" Type="int" />
+        </EntityType>
+        <EntityType Name="Status_rezume">
+          <Key>
+            <PropertyRef Name="Id_status" />
+          </Key>
+          <Property Name="Id_status" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_status" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Status_vakanciy">
+          <Key>
+            <PropertyRef Name="Id_status_vakanciy" />
+          </Key>
+          <Property Name="Id_status_vakanciy" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_status" Type="varchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Tip_artefact">
+          <Key>
+            <PropertyRef Name="Id_tip" />
+          </Key>
+          <Property Name="Id_tip" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_tip" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Uroven_obr">
+          <Key>
+            <PropertyRef Name="Id_uroven_obr" />
+          </Key>
+          <Property Name="Id_uroven_obr" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_uroven_obr" Type="varchar" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vakanciy">
+          <Key>
+            <PropertyRef Name="Id_vakanciy" />
+          </Key>
+          <Property Name="Id_vakanciy" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name_vakanciy" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Date_open" Type="date" Nullable="false" />
+          <Property Name="ZP" Type="money" />
+          <Property Name="Neod_opyt_rabot" Type="int" />
+          <Property Name="Opisanie_neob_navukov" Type="varchar(max)" />
+          <Property Name="Opisanie_obzn" Type="varchar(max)" />
+          <Property Name="Id_status_vakanciy" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Artefact_rezume_Rezume">
+          <End Role="RezumeV" Type="Self.RezumeV" Multiplicity="1" />
+          <End Role="Artefact_rezume" Type="Self.Artefact_rezume" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RezumeV">
+              <PropertyRef Name="Id_rezume" />
+            </Principal>
+            <Dependent Role="Artefact_rezume">
+              <PropertyRef Name="Id_rezume" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Artefact_rezume_Tip_artefact">
+          <End Role="Tip_artefact" Type="Self.Tip_artefact" Multiplicity="1" />
+          <End Role="Artefact_rezume" Type="Self.Artefact_rezume" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tip_artefact">
+              <PropertyRef Name="Id_tip" />
+            </Principal>
+            <Dependent Role="Artefact_rezume">
+              <PropertyRef Name="Id_tip" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Obrazovanie_Kandidat">
+          <End Role="Kandidat" Type="Self.Kandidat" Multiplicity="1" />
+          <End Role="Obrazovanie" Type="Self.Obrazovanie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kandidat">
+              <PropertyRef Name="Id_kandidat" />
+            </Principal>
+            <Dependent Role="Obrazovanie">
+              <PropertyRef Name="Id_kandidat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Obrazovanie_Uroven_obr">
+          <End Role="Uroven_obr" Type="Self.Uroven_obr" Multiplicity="1" />
+          <End Role="Obrazovanie" Type="Self.Obrazovanie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uroven_obr">
+              <PropertyRef Name="Id_uroven_obr" />
+            </Principal>
+            <Dependent Role="Obrazovanie">
+              <PropertyRef Name="Id_uroven_obr" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rezume_HR">
+          <End Role="HR" Type="Self.HR" Multiplicity="0..1" />
+          <End Role="RezumeV" Type="Self.RezumeV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HR">
+              <PropertyRef Name="Id_HR" />
+            </Principal>
+            <Dependent Role="RezumeV">
+              <PropertyRef Name="Id_HR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rezume_Kandidat">
+          <End Role="Kandidat" Type="Self.Kandidat" Multiplicity="1" />
+          <End Role="RezumeV" Type="Self.RezumeV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kandidat">
+              <PropertyRef Name="Id_kandidat" />
+            </Principal>
+            <Dependent Role="RezumeV">
+              <PropertyRef Name="Id_kandidat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rezume_Status_rezume">
+          <End Role="Status_rezume" Type="Self.Status_rezume" Multiplicity="1" />
+          <End Role="RezumeV" Type="Self.RezumeV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status_rezume">
+              <PropertyRef Name="Id_status" />
+            </Principal>
+            <Dependent Role="RezumeV">
+              <PropertyRef Name="Id_status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rezume_Vakanciy">
+          <End Role="Vakanciy" Type="Self.Vakanciy" Multiplicity="1" />
+          <End Role="RezumeV" Type="Self.RezumeV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vakanciy">
+              <PropertyRef Name="Id_vakanciy" />
+            </Principal>
+            <Dependent Role="RezumeV">
+              <PropertyRef Name="Id_vakanciy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vakanciy_Status_vakanciy">
+          <End Role="Status_vakanciy" Type="Self.Status_vakanciy" Multiplicity="1" />
+          <End Role="Vakanciy" Type="Self.Vakanciy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status_vakanciy">
+              <PropertyRef Name="Id_status_vakanciy" />
+            </Principal>
+            <Dependent Role="Vakanciy">
+              <PropertyRef Name="Id_status_vakanciy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище RezumeModelContainer">
+          <EntitySet Name="Artefact_rezume" EntityType="Self.Artefact_rezume" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HR" EntityType="Self.HR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kandidat" EntityType="Self.Kandidat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Obrazovanie" EntityType="Self.Obrazovanie" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RezumeV" EntityType="Self.RezumeV" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status_rezume" EntityType="Self.Status_rezume" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status_vakanciy" EntityType="Self.Status_vakanciy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tip_artefact" EntityType="Self.Tip_artefact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Uroven_obr" EntityType="Self.Uroven_obr" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vakanciy" EntityType="Self.Vakanciy" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Artefact_rezume_Rezume" Association="Self.FK_Artefact_rezume_Rezume">
+            <End Role="RezumeV" EntitySet="RezumeV" />
+            <End Role="Artefact_rezume" EntitySet="Artefact_rezume" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Artefact_rezume_Tip_artefact" Association="Self.FK_Artefact_rezume_Tip_artefact">
+            <End Role="Tip_artefact" EntitySet="Tip_artefact" />
+            <End Role="Artefact_rezume" EntitySet="Artefact_rezume" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Obrazovanie_Kandidat" Association="Self.FK_Obrazovanie_Kandidat">
+            <End Role="Kandidat" EntitySet="Kandidat" />
+            <End Role="Obrazovanie" EntitySet="Obrazovanie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Obrazovanie_Uroven_obr" Association="Self.FK_Obrazovanie_Uroven_obr">
+            <End Role="Uroven_obr" EntitySet="Uroven_obr" />
+            <End Role="Obrazovanie" EntitySet="Obrazovanie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rezume_HR" Association="Self.FK_Rezume_HR">
+            <End Role="HR" EntitySet="HR" />
+            <End Role="RezumeV" EntitySet="RezumeV" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rezume_Kandidat" Association="Self.FK_Rezume_Kandidat">
+            <End Role="Kandidat" EntitySet="Kandidat" />
+            <End Role="RezumeV" EntitySet="RezumeV" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rezume_Status_rezume" Association="Self.FK_Rezume_Status_rezume">
+            <End Role="Status_rezume" EntitySet="Status_rezume" />
+            <End Role="RezumeV" EntitySet="RezumeV" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rezume_Vakanciy" Association="Self.FK_Rezume_Vakanciy">
+            <End Role="Vakanciy" EntitySet="Vakanciy" />
+            <End Role="RezumeV" EntitySet="RezumeV" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vakanciy_Status_vakanciy" Association="Self.FK_Vakanciy_Status_vakanciy">
+            <End Role="Status_vakanciy" EntitySet="Status_vakanciy" />
+            <End Role="Vakanciy" EntitySet="Vakanciy" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="RezumeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Artefact_rezume">
+          <Key>
+            <PropertyRef Name="Id_artefact_rezume" />
+          </Key>
+          <Property Name="Id_artefact_rezume" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_tip" Type="Int32" Nullable="false" />
+          <Property Name="Id_rezume" Type="Int32" Nullable="false" />
+          <Property Name="Fail" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <NavigationProperty Name="RezumeV" Relationship="Self.FK_Artefact_rezume_Rezume" FromRole="Artefact_rezume" ToRole="RezumeV" />
+          <NavigationProperty Name="Tip_artefact" Relationship="Self.FK_Artefact_rezume_Tip_artefact" FromRole="Artefact_rezume" ToRole="Tip_artefact" />
+        </EntityType>
+        <EntityType Name="HR">
+          <Key>
+            <PropertyRef Name="Id_HR" />
+          </Key>
+          <Property Name="Id_HR" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Familiy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Imya" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Otchestvj" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Date_rogd" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Telefon" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pochta" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Login_v_sistemu" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Parol_v_sistemu" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="RezumeV" Relationship="Self.FK_Rezume_HR" FromRole="HR" ToRole="RezumeV" />
+        </EntityType>
+        <EntityType Name="Kandidat">
+          <Key>
+            <PropertyRef Name="Id_kandidat" />
+          </Key>
+          <Property Name="Id_kandidat" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Familiy" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Imya" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Otchestvj" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Date_rogd" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Telefon" Type="String" MaxLength="16" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Pochta" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Login_v_sistemu" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Parol_v_sistemu" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Obrazovanie" Relationship="Self.FK_Obrazovanie_Kandidat" FromRole="Kandidat" ToRole="Obrazovanie" />
+          <NavigationProperty Name="RezumeV" Relationship="Self.FK_Rezume_Kandidat" FromRole="Kandidat" ToRole="RezumeV" />
+        </EntityType>
+        <EntityType Name="Obrazovanie">
+          <Key>
+            <PropertyRef Name="Id_obrazovanie" />
+          </Key>
+          <Property Name="Id_obrazovanie" Type="Int32" Nullable="false" />
+          <Property Name="Id_kandidat" Type="Int32" Nullable="false" />
+          <Property Name="Id_uroven_obr" Type="Int32" Nullable="false" />
+          <Property Name="Specialnost" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="God_ocon" Type="Int32" Nullable="false" />
+          <Property Name="Name_uch" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Num_doc" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Kandidat" Relationship="Self.FK_Obrazovanie_Kandidat" FromRole="Obrazovanie" ToRole="Kandidat" />
+          <NavigationProperty Name="Uroven_obr" Relationship="Self.FK_Obrazovanie_Uroven_obr" FromRole="Obrazovanie" ToRole="Uroven_obr" />
+        </EntityType>
+        <EntityType Name="RezumeV">
+          <Key>
+            <PropertyRef Name="Id_rezume" />
+          </Key>
+          <Property Name="Id_rezume" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Id_kandidat" Type="Int32" Nullable="false" />
+          <Property Name="Id_vakanciy" Type="Int32" Nullable="false" />
+          <Property Name="Opyt_rabot" Type="Int32" />
+          <Property Name="Ogidaemay_ZP" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Opisanie_navukov" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Date_sozdaniy" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Id_status" Type="Int32" Nullable="false" />
+          <Property Name="Id_HR" Type="Int32" />
+          <NavigationProperty Name="Artefact_rezume" Relationship="Self.FK_Artefact_rezume_Rezume" FromRole="RezumeV" ToRole="Artefact_rezume" />
+          <NavigationProperty Name="HR" Relationship="Self.FK_Rezume_HR" FromRole="RezumeV" ToRole="HR" />
+          <NavigationProperty Name="Kandidat" Relationship="Self.FK_Rezume_Kandidat" FromRole="RezumeV" ToRole="Kandidat" />
+          <NavigationProperty Name="Status_rezume" Relationship="Self.FK_Rezume_Status_rezume" FromRole="RezumeV" ToRole="Status_rezume" />
+          <NavigationProperty Name="Vakanciy" Relationship="Self.FK_Rezume_Vakanciy" FromRole="RezumeV" ToRole="Vakanciy" />
+        </EntityType>
+        <EntityType Name="Status_rezume">
+          <Key>
+            <PropertyRef Name="Id_status" />
+          </Key>
+          <Property Name="Id_status" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="RezumeV" Relationship="Self.FK_Rezume_Status_rezume" FromRole="Status_rezume" ToRole="RezumeV" />
+        </EntityType>
+        <EntityType Name="Status_vakanciy">
+          <Key>
+            <PropertyRef Name="Id_status_vakanciy" />
+          </Key>
+          <Property Name="Id_status_vakanciy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Vakanciy" Relationship="Self.FK_Vakanciy_Status_vakanciy" FromRole="Status_vakanciy" ToRole="Vakanciy" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Tip_artefact">
+          <Key>
+            <PropertyRef Name="Id_tip" />
+          </Key>
+          <Property Name="Id_tip" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_tip" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Artefact_rezume" Relationship="Self.FK_Artefact_rezume_Tip_artefact" FromRole="Tip_artefact" ToRole="Artefact_rezume" />
+        </EntityType>
+        <EntityType Name="Uroven_obr">
+          <Key>
+            <PropertyRef Name="Id_uroven_obr" />
+          </Key>
+          <Property Name="Id_uroven_obr" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_uroven_obr" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Obrazovanie" Relationship="Self.FK_Obrazovanie_Uroven_obr" FromRole="Uroven_obr" ToRole="Obrazovanie" />
+        </EntityType>
+        <EntityType Name="Vakanciy">
+          <Key>
+            <PropertyRef Name="Id_vakanciy" />
+          </Key>
+          <Property Name="Id_vakanciy" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name_vakanciy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Date_open" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="ZP" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Neod_opyt_rabot" Type="Int32" />
+          <Property Name="Opisanie_neob_navukov" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Opisanie_obzn" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Id_status_vakanciy" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="RezumeV" Relationship="Self.FK_Rezume_Vakanciy" FromRole="Vakanciy" ToRole="RezumeV" />
+          <NavigationProperty Name="Status_vakanciy" Relationship="Self.FK_Vakanciy_Status_vakanciy" FromRole="Vakanciy" ToRole="Status_vakanciy" />
+        </EntityType>
+        <Association Name="FK_Artefact_rezume_Rezume">
+          <End Role="RezumeV" Type="Self.RezumeV" Multiplicity="1" />
+          <End Role="Artefact_rezume" Type="Self.Artefact_rezume" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="RezumeV">
+              <PropertyRef Name="Id_rezume" />
+            </Principal>
+            <Dependent Role="Artefact_rezume">
+              <PropertyRef Name="Id_rezume" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Artefact_rezume_Tip_artefact">
+          <End Role="Tip_artefact" Type="Self.Tip_artefact" Multiplicity="1" />
+          <End Role="Artefact_rezume" Type="Self.Artefact_rezume" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tip_artefact">
+              <PropertyRef Name="Id_tip" />
+            </Principal>
+            <Dependent Role="Artefact_rezume">
+              <PropertyRef Name="Id_tip" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rezume_HR">
+          <End Role="HR" Type="Self.HR" Multiplicity="0..1" />
+          <End Role="RezumeV" Type="Self.RezumeV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HR">
+              <PropertyRef Name="Id_HR" />
+            </Principal>
+            <Dependent Role="RezumeV">
+              <PropertyRef Name="Id_HR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Obrazovanie_Kandidat">
+          <End Role="Kandidat" Type="Self.Kandidat" Multiplicity="1" />
+          <End Role="Obrazovanie" Type="Self.Obrazovanie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kandidat">
+              <PropertyRef Name="Id_kandidat" />
+            </Principal>
+            <Dependent Role="Obrazovanie">
+              <PropertyRef Name="Id_kandidat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rezume_Kandidat">
+          <End Role="Kandidat" Type="Self.Kandidat" Multiplicity="1" />
+          <End Role="RezumeV" Type="Self.RezumeV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kandidat">
+              <PropertyRef Name="Id_kandidat" />
+            </Principal>
+            <Dependent Role="RezumeV">
+              <PropertyRef Name="Id_kandidat" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Obrazovanie_Uroven_obr">
+          <End Role="Uroven_obr" Type="Self.Uroven_obr" Multiplicity="1" />
+          <End Role="Obrazovanie" Type="Self.Obrazovanie" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uroven_obr">
+              <PropertyRef Name="Id_uroven_obr" />
+            </Principal>
+            <Dependent Role="Obrazovanie">
+              <PropertyRef Name="Id_uroven_obr" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rezume_Status_rezume">
+          <End Role="Status_rezume" Type="Self.Status_rezume" Multiplicity="1" />
+          <End Role="RezumeV" Type="Self.RezumeV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status_rezume">
+              <PropertyRef Name="Id_status" />
+            </Principal>
+            <Dependent Role="RezumeV">
+              <PropertyRef Name="Id_status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rezume_Vakanciy">
+          <End Role="Vakanciy" Type="Self.Vakanciy" Multiplicity="1" />
+          <End Role="RezumeV" Type="Self.RezumeV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vakanciy">
+              <PropertyRef Name="Id_vakanciy" />
+            </Principal>
+            <Dependent Role="RezumeV">
+              <PropertyRef Name="Id_vakanciy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vakanciy_Status_vakanciy">
+          <End Role="Status_vakanciy" Type="Self.Status_vakanciy" Multiplicity="1" />
+          <End Role="Vakanciy" Type="Self.Vakanciy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status_vakanciy">
+              <PropertyRef Name="Id_status_vakanciy" />
+            </Principal>
+            <Dependent Role="Vakanciy">
+              <PropertyRef Name="Id_status_vakanciy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="RezumeEntities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Artefact_rezume" EntityType="Self.Artefact_rezume" />
+          <EntitySet Name="HR" EntityType="Self.HR" />
+          <EntitySet Name="Kandidat" EntityType="Self.Kandidat" />
+          <EntitySet Name="Obrazovanie" EntityType="Self.Obrazovanie" />
+          <EntitySet Name="RezumeV" EntityType="Self.RezumeV" />
+          <EntitySet Name="Status_rezume" EntityType="Self.Status_rezume" />
+          <EntitySet Name="Status_vakanciy" EntityType="Self.Status_vakanciy" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Tip_artefact" EntityType="Self.Tip_artefact" />
+          <EntitySet Name="Uroven_obr" EntityType="Self.Uroven_obr" />
+          <EntitySet Name="Vakanciy" EntityType="Self.Vakanciy" />
+          <AssociationSet Name="FK_Artefact_rezume_Rezume" Association="Self.FK_Artefact_rezume_Rezume">
+            <End Role="RezumeV" EntitySet="RezumeV" />
+            <End Role="Artefact_rezume" EntitySet="Artefact_rezume" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Artefact_rezume_Tip_artefact" Association="Self.FK_Artefact_rezume_Tip_artefact">
+            <End Role="Tip_artefact" EntitySet="Tip_artefact" />
+            <End Role="Artefact_rezume" EntitySet="Artefact_rezume" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rezume_HR" Association="Self.FK_Rezume_HR">
+            <End Role="HR" EntitySet="HR" />
+            <End Role="RezumeV" EntitySet="RezumeV" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Obrazovanie_Kandidat" Association="Self.FK_Obrazovanie_Kandidat">
+            <End Role="Kandidat" EntitySet="Kandidat" />
+            <End Role="Obrazovanie" EntitySet="Obrazovanie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rezume_Kandidat" Association="Self.FK_Rezume_Kandidat">
+            <End Role="Kandidat" EntitySet="Kandidat" />
+            <End Role="RezumeV" EntitySet="RezumeV" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Obrazovanie_Uroven_obr" Association="Self.FK_Obrazovanie_Uroven_obr">
+            <End Role="Uroven_obr" EntitySet="Uroven_obr" />
+            <End Role="Obrazovanie" EntitySet="Obrazovanie" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rezume_Status_rezume" Association="Self.FK_Rezume_Status_rezume">
+            <End Role="Status_rezume" EntitySet="Status_rezume" />
+            <End Role="RezumeV" EntitySet="RezumeV" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rezume_Vakanciy" Association="Self.FK_Rezume_Vakanciy">
+            <End Role="Vakanciy" EntitySet="Vakanciy" />
+            <End Role="RezumeV" EntitySet="RezumeV" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vakanciy_Status_vakanciy" Association="Self.FK_Vakanciy_Status_vakanciy">
+            <End Role="Status_vakanciy" EntitySet="Status_vakanciy" />
+            <End Role="Vakanciy" EntitySet="Vakanciy" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище RezumeModelContainer" CdmEntityContainer="RezumeEntities3">
+          <EntitySetMapping Name="Artefact_rezume">
+            <EntityTypeMapping TypeName="RezumeModel.Artefact_rezume">
+              <MappingFragment StoreEntitySet="Artefact_rezume">
+                <ScalarProperty Name="Id_artefact_rezume" ColumnName="Id_artefact_rezume" />
+                <ScalarProperty Name="Id_tip" ColumnName="Id_tip" />
+                <ScalarProperty Name="Id_rezume" ColumnName="Id_rezume" />
+                <ScalarProperty Name="Fail" ColumnName="Fail" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HR">
+            <EntityTypeMapping TypeName="RezumeModel.HR">
+              <MappingFragment StoreEntitySet="HR">
+                <ScalarProperty Name="Id_HR" ColumnName="Id_HR" />
+                <ScalarProperty Name="Familiy" ColumnName="Familiy" />
+                <ScalarProperty Name="Imya" ColumnName="Imya" />
+                <ScalarProperty Name="Otchestvj" ColumnName="Otchestvj" />
+                <ScalarProperty Name="Date_rogd" ColumnName="Date_rogd" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Pochta" ColumnName="Pochta" />
+                <ScalarProperty Name="Login_v_sistemu" ColumnName="Login_v_sistemu" />
+                <ScalarProperty Name="Parol_v_sistemu" ColumnName="Parol_v_sistemu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kandidat">
+            <EntityTypeMapping TypeName="RezumeModel.Kandidat">
+              <MappingFragment StoreEntitySet="Kandidat">
+                <ScalarProperty Name="Id_kandidat" ColumnName="Id_kandidat" />
+                <ScalarProperty Name="Familiy" ColumnName="Familiy" />
+                <ScalarProperty Name="Imya" ColumnName="Imya" />
+                <ScalarProperty Name="Otchestvj" ColumnName="Otchestvj" />
+                <ScalarProperty Name="Date_rogd" ColumnName="Date_rogd" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Pochta" ColumnName="Pochta" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Login_v_sistemu" ColumnName="Login_v_sistemu" />
+                <ScalarProperty Name="Parol_v_sistemu" ColumnName="Parol_v_sistemu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Obrazovanie">
+            <EntityTypeMapping TypeName="RezumeModel.Obrazovanie">
+              <MappingFragment StoreEntitySet="Obrazovanie">
+                <ScalarProperty Name="Id_obrazovanie" ColumnName="Id_obrazovanie" />
+                <ScalarProperty Name="Id_kandidat" ColumnName="Id_kandidat" />
+                <ScalarProperty Name="Id_uroven_obr" ColumnName="Id_uroven_obr" />
+                <ScalarProperty Name="Specialnost" ColumnName="Specialnost" />
+                <ScalarProperty Name="God_ocon" ColumnName="God_ocon" />
+                <ScalarProperty Name="Name_uch" ColumnName="Name_uch" />
+                <ScalarProperty Name="Num_doc" ColumnName="Num_doc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RezumeV">
+            <EntityTypeMapping TypeName="RezumeModel.RezumeV">
+              <MappingFragment StoreEntitySet="RezumeV">
+                <ScalarProperty Name="Id_rezume" ColumnName="Id_rezume" />
+                <ScalarProperty Name="Id_kandidat" ColumnName="Id_kandidat" />
+                <ScalarProperty Name="Id_vakanciy" ColumnName="Id_vakanciy" />
+                <ScalarProperty Name="Opyt_rabot" ColumnName="Opyt_rabot" />
+                <ScalarProperty Name="Ogidaemay_ZP" ColumnName="Ogidaemay_ZP" />
+                <ScalarProperty Name="Opisanie_navukov" ColumnName="Opisanie_navukov" />
+                <ScalarProperty Name="Date_sozdaniy" ColumnName="Date_sozdaniy" />
+                <ScalarProperty Name="Id_status" ColumnName="Id_status" />
+                <ScalarProperty Name="Id_HR" ColumnName="Id_HR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status_rezume">
+            <EntityTypeMapping TypeName="RezumeModel.Status_rezume">
+              <MappingFragment StoreEntitySet="Status_rezume">
+                <ScalarProperty Name="Id_status" ColumnName="Id_status" />
+                <ScalarProperty Name="Name_status" ColumnName="Name_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status_vakanciy">
+            <EntityTypeMapping TypeName="RezumeModel.Status_vakanciy">
+              <MappingFragment StoreEntitySet="Status_vakanciy">
+                <ScalarProperty Name="Id_status_vakanciy" ColumnName="Id_status_vakanciy" />
+                <ScalarProperty Name="Name_status" ColumnName="Name_status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="RezumeModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tip_artefact">
+            <EntityTypeMapping TypeName="RezumeModel.Tip_artefact">
+              <MappingFragment StoreEntitySet="Tip_artefact">
+                <ScalarProperty Name="Id_tip" ColumnName="Id_tip" />
+                <ScalarProperty Name="Name_tip" ColumnName="Name_tip" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Uroven_obr">
+            <EntityTypeMapping TypeName="RezumeModel.Uroven_obr">
+              <MappingFragment StoreEntitySet="Uroven_obr">
+                <ScalarProperty Name="Id_uroven_obr" ColumnName="Id_uroven_obr" />
+                <ScalarProperty Name="Name_uroven_obr" ColumnName="Name_uroven_obr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vakanciy">
+            <EntityTypeMapping TypeName="RezumeModel.Vakanciy">
+              <MappingFragment StoreEntitySet="Vakanciy">
+                <ScalarProperty Name="Id_vakanciy" ColumnName="Id_vakanciy" />
+                <ScalarProperty Name="Name_vakanciy" ColumnName="Name_vakanciy" />
+                <ScalarProperty Name="Date_open" ColumnName="Date_open" />
+                <ScalarProperty Name="ZP" ColumnName="ZP" />
+                <ScalarProperty Name="Neod_opyt_rabot" ColumnName="Neod_opyt_rabot" />
+                <ScalarProperty Name="Opisanie_neob_navukov" ColumnName="Opisanie_neob_navukov" />
+                <ScalarProperty Name="Opisanie_obzn" ColumnName="Opisanie_obzn" />
+                <ScalarProperty Name="Id_status_vakanciy" ColumnName="Id_status_vakanciy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Нет" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

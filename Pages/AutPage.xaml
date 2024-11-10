@@ -1,0 +1,28 @@
+﻿<Page x:Class="Rezume.Pages.AutPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Rezume.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="1000"
+       Title="Авторизация">
+
+    <Grid>
+        <Border Background="{StaticResource SurfaceBrush}" CornerRadius="20"  Margin="20" Grid.Row="1">
+
+            <StackPanel VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="Логин"></TextBlock>
+                    <TextBox Name="login" ></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                    <TextBlock Text="Пароль" ></TextBlock>
+                    <PasswordBox Name="password" ></PasswordBox>
+                </StackPanel>
+                <Button  Content="Войти" Click="AutClick" Margin="7, 60, 7, 7"></Button>
+                <Button   Content="Зарегестрироваться"  Click="RegClick" ></Button>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

@@ -1,0 +1,74 @@
+﻿<Page x:Class="Rezume.Pages.AddRezume"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Rezume.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="900" d:DesignWidth="800"
+      Title="Добавление резюме">
+
+    <Grid Background="{StaticResource SurfaceBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+
+          
+        </Grid.RowDefinitions>
+        <Button
+            Grid.Row="8"
+            Grid.ColumnSpan="2"
+            Name="SaveButton"
+            Content="Сохранить"
+            Click="SaveButton_Click"></Button>
+        
+        
+        <TextBlock Text="Кандидат" Grid.Row="0" HorizontalAlignment="Right"></TextBlock>
+        <TextBlock Text="Вакансия" Grid.Row="1" HorizontalAlignment="Right"></TextBlock>
+        <TextBlock Text="Опыт работы" Grid.Row="2" HorizontalAlignment="Right"></TextBlock>
+        <TextBlock Text="Ожидаемая зарплата" Grid.Row="3" HorizontalAlignment="Right"></TextBlock>
+        <TextBlock Text="Описание навыков" Grid.Row="4" HorizontalAlignment="Right"></TextBlock>
+        <TextBlock Text="Ответственный HR" Grid.Row="5" HorizontalAlignment="Right"></TextBlock>
+        <ComboBox Grid.Column="1"
+                  Grid.Row="0"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Center"
+                  DisplayMemberPath="Name"
+                  Name="KandComboBox"
+                  SelectedItem="{Binding Id_rezume}"></ComboBox>
+        <ComboBox Grid.Column="1"
+                  Grid.Row="1"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Center"
+                  DisplayMemberPath="Name"
+                  Name="VakComboBox"
+                  SelectedItem="{Binding Id_vakanciy}"></ComboBox>
+
+
+        <TextBox Text="{Binding Opyt_rabot}" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left"></TextBox>
+        <TextBox Text="{Binding Ogidaemay_ZP}" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" ></TextBox>
+        <TextBox Text="{Binding Opisanie_navukov}" Grid.Column="1" Grid.Row="4" Name="TextBoxProc" HorizontalAlignment="Left" />
+
+        <ComboBox Grid.Column="1"
+                  Grid.Row="5"
+                  HorizontalAlignment="Left"
+                  VerticalAlignment="Center"
+                  DisplayMemberPath="Name"
+                  Name="HRComboBox"
+                  SelectedItem="{Binding Id_HR}"></ComboBox>
+
+
+
+
+    </Grid>
+</Page>
